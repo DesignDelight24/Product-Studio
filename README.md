@@ -9,6 +9,7 @@ A powerful, privacy-focused AI fashion design application that runs **100% local
 ## Features ✨
 
 - **🎨 AI-Powered Design Generation**: Create stunning fashion designs using Stable Diffusion
+- **📚 40+ Curated Presets**: Professional fashion prompts across 4 categories (Day & Night Wear, Intimate & Loungewear, Swimwear, High Fashion & Runway)
 - **🔒 100% Local & Private**: All processing happens on your computer - no cloud APIs
 - **⚡ Real-time Preview**: See your designs as they're generated
 - **🎯 Customizable Settings**: Fine-tune garment types, styles, and generation parameters
@@ -148,6 +149,31 @@ Once Stable Diffusion is running, install the Fashion Studio:
    - Click "Generate Design"
    - Wait 30-60 seconds for your design
    - Download or save to gallery
+
+### Using Fashion Presets 🎯
+
+Get started quickly with professionally crafted prompts:
+
+1. **Browse Presets**
+   - Click "Browse Fashion Presets" button in the Design Studio
+   - Explore 40+ curated presets across 4 categories
+
+2. **Categories Available**
+   - **Day & Night Wear** (10 presets): Everyday fashion and evening wear
+   - **Intimate & Loungewear** (10 presets): Comfortable and intimate apparel
+   - **Swimwear** (10 presets): Beach and poolside fashion
+   - **High Fashion & Runway** (10 presets): Avant-garde and artistic fashion
+
+3. **Select a Preset**
+   - Browse by category tabs
+   - Use search to find specific styles
+   - Click any preset to load it into the design form
+   - Preset automatically configures optimal settings
+
+4. **Customize (Optional)**
+   - Modify the loaded prompt to match your vision
+   - Adjust generation settings if needed
+   - Generate with one click
 
 ### Tips for Best Results 💡
 

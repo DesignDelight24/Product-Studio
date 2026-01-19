@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import imageGenerator from '../services/imageGenerator'
+import PresetBrowser from './PresetBrowser'
 
 function DesignStudio({ onImageGenerated }) {
   const [prompt, setPrompt] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
   const [currentImage, setCurrentImage] = useState(null)
   const [error, setError] = useState(null)
+  const [showPresetBrowser, setShowPresetBrowser] = useState(false)
   const [settings, setSettings] = useState({
     garmentType: 'dress',
     style: 'modern',
@@ -80,6 +82,16 @@ function DesignStudio({ onImageGenerated }) {
     link.click()
   }
 
+  const handleSelectPreset = (preset) => {
+    // Apply preset to form
+    setPrompt(preset.prompt)
+    setSettings({
+      ...settings,
+      steps: preset.settings.steps,
+      cfgScale: preset.settings.cfgScale
+    })
+  }
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* Left Panel - Controls */}
@@ -88,6 +100,17 @@ function DesignStudio({ onImageGenerated }) {
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Design Your Fashion</h2>
           <p className="text-gray-600 text-sm">Describe your vision and let AI bring it to life</p>
         </div>
+
+        {/* Browse Presets Button */}
+        <button
+          onClick={() => setShowPresetBrowser(true)}
+          className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-indigo-600 hover:to-purple-600 transition-all flex items-center justify-center space-x-2"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+          <span>Browse Fashion Presets</span>
+        </button>
 
         {/* Garment Type */}
         <div>
@@ -250,6 +273,14 @@ function DesignStudio({ onImageGenerated }) {
           </div>
         )}
       </div>
+
+      {/* Preset Browser Modal */}
+      {showPresetBrowser && (
+        <PresetBrowser
+          onSelectPreset={handleSelectPreset}
+          onClose={() => setShowPresetBrowser(false)}
+        />
+      )}
     </div>
   )
 }
